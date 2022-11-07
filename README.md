@@ -22,3 +22,10 @@ More specifically, the FM regression:
 Detailed explanation:
 
 We will only look at the stocks belong to the top 50% market value since low market cap stocks are more likely to associate with bad quality than high cap stocks, so first we want to exclude all the stocks in low 50% perceniile for each month (using lagged MV). In the beginning of each year, we will apply FM regression to the past 30 year stock data to generate coefficients, b0, b1, b2. And then we will use the coefficients to estimate the monthly return for each stock for the next year. For example, we will use the 1971 to 2000 data to build our model and use the model to forecast the monthly return of stocks in 2001. We will then seperate stocks into 5 groups based on the level of its forcasted return and long only the highest forecasted return group (group 5) as an equally weighted portfolio. In the beginning of the next year, we will repeat the same FM regression, compute the new coefficients, apply the the computed coefficients to monthly data to generate forecasted monthly return, and re-select stocks. The back-test is conducted from 2001 to 2021.
+
+# Conclusion
+If I implement the strategy from 2020-2021, the annualized average return (AAR) is 13.41% and the annualized sharpe ratio (ASR) is 0.714.
+A long & hold market equally weighted portfolio generates AAR = 12.42% and ASR = 0.6310.
+A long & hold only top 50% Market cap portfolio generates AAR = 12.17% and ASR = 0.6091.
+
+Our strategy generates a HPR = 11.4X and the both of long and hold strategies generate around 8.9X, before accounting for trading costs.
